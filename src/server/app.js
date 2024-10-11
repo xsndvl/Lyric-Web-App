@@ -1,16 +1,17 @@
 const express = require('express')
+const getCatCall = require('./catCall')
 const app = express()
 const port = 8080
-const getCatCall = require('./catCall')
 
 app.get('/', (req, res) => {
   res.send('Hello World')
 })
 
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
   try {
     res.send('Got a POST Request')
-    getCatCall()
+    // const catFact = await getCatCall()
+    console.log(`catFact: ${catFact}`)
   } catch (err) {
     console.log(`Error: ${err}`)
   }
